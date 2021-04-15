@@ -100,7 +100,9 @@
                     <a href="index.php"><button class="btn transparent" id="sign-in-btn">
                     Trang chủ
                     </button></a>
-                    
+                    <a href="./admin/login.php"><button class="btn transparent" id="sign-in-btn">
+                    Admin
+                    </button></a>
 
                 </div>
                 <img src="img/log.svg" class="image" alt="" />

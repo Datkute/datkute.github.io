@@ -128,9 +128,9 @@
             
             $_SESSION['trang_chi_tiet_gio_hang'] = "co";	//Xác Định Đã Truy Cập Vào Trang Này
             $ma = $_GET['ma'];
-            $sql = 'SELECT * FROM PRODUCT WHERE id = "'.$ma.'"';
-            $products = executeResult($sql);
-            foreach ($products as $pd)
+            $sql = 'SELECT * FROM phu_kien WHERE id = "'.$ma.'"';
+            $products_pk = executeResult($sql);
+            foreach ($products_pk as $pk)
           echo'
     <div class="page__title-area">
       <div class="container">
@@ -143,7 +143,7 @@
                 </svg>
               </a>
             </li>
-            <li class="page__title">'.$pd['TENSP'].'</li>
+            <li class="page__title">'.$pk['TENSP'].'</li>
           </ul>
         </div>
       </div>
@@ -161,15 +161,15 @@
               <div class="product__picture" id="product__picture">
                 <!-- <div class="rect" id="rect"></div> -->
                 <div class="picture__container">
-                  <img src="'.$pd['HINHANH'].'" id="pic" />
+                  <img src="'.$pk['HINHANH'].'" id="pic" />
                 </div>
               </div>
               <div class="zoom" id="zoom"></div>
             </div>
     <!---------------------------PHP Thêm Vào Giỏ Hàng-------------------------->
             <div class="product-details__btn">
-                <form method="GET" action="cart.php" class="form-cost">
-                  <input type="hidden" name="id" value="'.$pd['id'].'">
+                <form method="GET" action="cart_pk.php" class="form-cost">
+                  <input type="hidden" name="id" value="'.$pk['id'].'">
                   <input type="number" name="so_luong" value="1" style="width:50px" class="number-cart"></br>
                   <input type="Submit" value="Thêm Vào Giỏ Hàng" class="btn-cart">
                 </form>
@@ -178,9 +178,9 @@
           </div>
           <div class="product-detail__right">
             <div class="product-detail__content">
-              <h3>'.$pd['TENSP'].'</h3>
+              <h3>'.$pk['TENSP'].'</h3>
               <div class="price">
-                <span class="new__price">'.$pd['DONGIA'].'</span>
+                <span class="new__price">'.$pk['DONGIA'].'</span>
               </div>
               <div class="product__review">
                 <div class="rating">
@@ -203,7 +203,7 @@
                 <a href="#" class="rating__quatity">3 reviews</a>
               </div>
               <p>
-                '.$pd['chitietsp'].'
+                '.$pk['chitietsp'].'
               </p>
               <div class="product__info-container">
                 <ul class="product__info">
@@ -226,11 +226,11 @@
                   
                   <li>
                     <span>Subtotal:</span>
-                    <a href="#" class="new__price">'.$pd['DONGIA'].'</a>
+                    <a href="#" class="new__price">'.$pk['DONGIA'].'</a>
                   </li>
                   <li>
                     <span>Brand:</span>
-                    <a href="#">'.$pd['MANXB'].'</a>
+                    <a href="#">'.$pk['MANXB'].'</a>
                   </li>
                   <li>
                     <span>Product Type:</span>

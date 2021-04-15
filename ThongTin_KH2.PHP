@@ -120,16 +120,11 @@ textarea:focus {
   top: -16px;
   color: #2cb680;
 }
-.form-KH{
-  color: #800000;
-  margin-left: 35%;
-}
     </style>
 <body>
 
 <!----------------------------------------------------->
 <form id="form1" name="form1" method="post" action="CapNhat_MuaHang2.PHP" class="form">
-    <h2 class="form-KH">Thông Tin Khách Mua Hàng</h2>
     <div class="form-detail">
       <div class="form-info col-md-6 col-xs-12">
         <div class="group">      
