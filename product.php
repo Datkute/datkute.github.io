@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css">
   <!-- Animate On Scroll -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
   <!-- Custom StyleSheet -->
   <link rel="stylesheet" href="styles.css" />
@@ -56,6 +57,70 @@
       margin-left: 43%;
       text-align: center;
     }
+    /*Search */
+    .container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+.container-1 input#search{
+  width: 200px;
+  height: 50px;
+  background: #CCCCFF;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: black;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: background .55s ease;
+-moz-transition: background .55s ease;
+-ms-transition: background .55s ease;
+-o-transition: background .55s ease;
+transition: background .55s ease;
+}
+.container-1 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.container-1 input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+  border: none;
+  background-color: #CCCCFF;
+}
+.container-1 .icon:hover{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+  border: none;
+  background-color: #FFCCFF;
+}
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: #FFCCFF;
+  }
   </style>
 </head>
 
@@ -87,7 +152,19 @@
             </div>
             <ul class="nav__list">
               <li class="nav__item">
-                <a href="/" class="nav__link">Home</a>
+                <form class=" d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET" action="kq_timkiem.php">
+                    <div class="input-group">    
+                        <div class="box">
+                            <div class="container-1">
+                                <button type="submit" name="submit" class="icon" type="submit"><i class="fa fa-search"></i></button>
+                                <input type="search" name="search" id="search" placeholder="Search for..." />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+              </li>
+              <li class="nav__item">
+                <a href="index.php" class="nav__link">Home</a>
               </li>
               <li class="nav__item">
                 <a href="#" class="nav__link">Products</a>
@@ -102,19 +179,13 @@
           </div>
 
           <div class="nav__icons">
-            <a href="#" class="icon__item">
+            <a href="login.php" class="icon__item">
               <svg class="icon__user">
                 <use xlink:href="./images/sprite.svg#icon-user"></use>
               </svg>
             </a>
 
-            <a href="#" class="icon__item">
-              <svg class="icon__search">
-                <use xlink:href="./images/sprite.svg#icon-search"></use>
-              </svg>
-            </a>
-
-            <a href="#" class="icon__item">
+            <a href="cart.php" class="icon__item">
               <svg class="icon__cart">
                 <use xlink:href="./images/sprite.svg#icon-shopping-basket"></use>
               </svg>

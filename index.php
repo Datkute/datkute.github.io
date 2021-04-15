@@ -71,7 +71,8 @@
                 width: 80px;
                 height: 25px;
                 margin-top: 10px;
-                border-radius: 10px;
+                border-radius: 5px;
+                color: black;
             }
             .btn-primary{
                 width: 30px;
@@ -79,10 +80,11 @@
                 position: relative;
             }
             .product__btn1:hover{
-                width: 100px;
-                height: 30px;
+                width: 80px;
+                height: 25px;
                 margin-top: 10px;
-                background-color: #00CCFF;
+                background-color: black;
+                color: white;
             }
 
             .row .col{
@@ -119,6 +121,71 @@
                 height: 32px;
                 border-radius: 5px;
             }
+            /*Search */
+            .container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+.container-1 input#search{
+  width: 200px;
+  height: 50px;
+  background: #CCCCFF;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: black;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: background .55s ease;
+-moz-transition: background .55s ease;
+-ms-transition: background .55s ease;
+-o-transition: background .55s ease;
+transition: background .55s ease;
+}
+.container-1 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.container-1 input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+  border: none;
+  background-color: #CCCCFF;
+}
+.container-1 .icon:hover{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+  border: none;
+  background-color: #FFCCFF;
+}
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: #FFCCFF;
+  }
+  
         </style>
     </head>
     <body>
@@ -159,11 +226,17 @@
                                 <li class="nav__item">
                                 <form class=" d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET" action="kq_timkiem.php">
                                     <div class="input-group">
-                                    <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                    
+                                    <!-- <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        
                                         <button class="btn btn-primary" type="submit" name="submit">
                                             <i class="fas fa-search fa-sm"></i>
-                                        </button>
+                                        </button> -->
+                                        <div class="box">
+                                            <div class="container-1">
+                                                <button type="submit" name="submit" class="icon" type="submit"><i class="fa fa-search"></i></button>
+                                                <input type="search" name="search" id="search" placeholder="Search for..." />
+                                            </div>
+                                        </div>
                                     
                                     </div>
                                 </form>
@@ -186,7 +259,11 @@
                         <div class="nav__icons">
                             <a href="login.php" class="icon__item">
                                 <svg class="icon__user">
-                                    <use xlink:href="./images/sprite.svg#icon-user"></use>
+                                   
+                                       
+                                           <use xlink:href='./images/sprite.svg#icon-user'></use>
+                                    
+                                    
                                 </svg>
                             </a>
                             <a href="cart.php" class="icon__item">
@@ -278,7 +355,9 @@
                                     <div class="collection__content">
                                         <div class="collection__data">
                                             <span style="font-size: 20px">Màu sắc mới:</span>
-                                            <h1>'.$pd1['TENSP'].'</h1>
+                                                
+                                                    <h1>'.$pd1['TENSP'].'</h1>
+                                                
                                             <form method="GET" action="cart.php" class="form-cost">
                                                 <input type="hidden" name="id" value="'.$pd1['id'].'">
                                                 <input type="hidden" name="so_luong" value="1">
@@ -464,7 +543,11 @@
 					foreach ($studentList as $pd){
 						$i ++ ;
 					echo'<div class="col">
-                    <div><img src="'.$pd['HINHANH'].'" alt=""> </div>
+                    <div>
+                        <a href="product.php?ma='.$pd['id'].'">
+                            <img src="'.$pd['HINHANH'].'" alt=""> 
+                        </a>        
+                    </div>
                     <div class="product__footer">
                         <h3>
                             <a href="product.php?ma='.$pd['id'].'">

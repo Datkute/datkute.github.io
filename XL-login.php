@@ -17,7 +17,7 @@
 		$result = mysqli_query($conn, $sql);  
 		$num = mysqli_num_rows($result);
 		if ($num >=1)
-				header("Location: admin.php");	
+				header("Location: index.php");	
 		else
 		{
 				$_SESSION['TB'] = "Usernam Hoac Password Sai !";

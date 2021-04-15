@@ -89,6 +89,70 @@
                   MINUS AND PLUS
          */
          }
+          /*Search */
+          .container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+.container-1 input#search{
+  width: 200px;
+  height: 50px;
+  background: #CCCCFF;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: black;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: background .55s ease;
+-moz-transition: background .55s ease;
+-ms-transition: background .55s ease;
+-o-transition: background .55s ease;
+transition: background .55s ease;
+}
+.container-1 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.container-1 input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+  border: none;
+  background-color: #CCCCFF;
+}
+.container-1 .icon:hover{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+  border: none;
+  background-color: #FFCCFF;
+}
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: #FFCCFF;
+  }
       </style>
    </head>
    <body>
@@ -118,10 +182,12 @@
                      <ul class="nav__list">
                         <li class="nav__item">
                            <form method="GET" action="kq_timkiem.php" class="form-cost">
-                              <input type="text" name="search" placeholder="Bạn Tìm Gì??" class="search__btn">
-                              <button type="submit" name="submit" class="btn-search">
-                              <i class="fas fa-search"></i>
-                              </button>
+                                       <div class="box">
+                                            <div class="container-1">
+                                                <button type="submit" name="submit" class="icon" type="submit"><i class="fa fa-search"></i></button>
+                                                <input type="search" name="search" id="search" placeholder="Search for..." />
+                                            </div>
+                                        </div>
                            </form>
                         </li>
                         <li class="nav__item">
@@ -300,9 +366,9 @@
                                <td data-th='Quantity'>
                                    <div class='buttons_added'> 
                                        <input type='hidden' name='".$name_id."' value='".$_SESSION['id_them_vao_gio'][$i]."' > 
-                                       <input class='minus is-form' style='width: 30px; background-color: #FF9966; border=0' type='button' value='-' min ='1' id='inc' onclick='decNumber()'>
-                                       <label for='inc' id='display' type='number' max='10' style='width: 30px; text-align:center' min ='1' name='".$name_sl."' value='". $_SESSION['sl_them_vao_gio'][$i]."'></label>
-                                       <input class='plus is-form' style='width: 30px; background-color: #FF9966;border=0' type='button' value='+' id='dec' onclick='incNumber()'>
+                                       <input class='minus is-form' style='width: 30px; background-color: #FF9966; border=0' type='hidden' value='-' min ='1' id='inc' onclick='decNumber()'>
+                                       <input for='inc' id='display' type='number' max='10' style='width: 50px; text-align:center' min ='0' name='".$name_sl."' value='". $_SESSION['sl_them_vao_gio'][$i]."'></input>
+                                       <input class='plus is-form' style='width: 30px; background-color: #FF9966;border=0' type='hidden' value='+' id='dec' onclick='incNumber()'>
                                    </div>
                                </td>
                                <td data-th='Subtotal' class='text-center'>".number_format($tien)." đ</td>    
@@ -319,7 +385,9 @@
                echo "</table>";
                echo"
                     <p class='text-center' style='color: red; font-size: 15px; margin-left: 80% '><strong>Tổng: ".number_format($tong_cong)." VNĐ</strong></p> 
-                ";
+                    <div class='btn-primary-main'><button type='submit' class='btn btn-primary'>Cập nhật</button></div>
+
+                    ";
             echo "</form>";
             
             echo"</div>";
